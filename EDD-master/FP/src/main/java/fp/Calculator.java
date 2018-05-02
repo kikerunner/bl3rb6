@@ -19,27 +19,38 @@ public class Calculator {
 	 * devuelve una lista con los n números de la serie de fibonacci.
 	 */
 	public static List<Integer> fibonacci(int n) {
-		List<Integer> listaFibonacci = new ArrayList<Integer>();
+		List<Integer> fiblist = new ArrayList<Integer>();
 		if (n == 1)
-			listaFibonacci.add(1);
+			fiblist.add(1);
 		if (n > 1) {
-			listaFibonacci.add(1);
-			listaFibonacci.add(1);
+			fiblist.add(1);
+			fiblist.add(1);
 			if (n > 2)
-				for (int i = 2; i < n; i++)
-					listaFibonacci.add(listaFibonacci.get(listaFibonacci.size() - 1)
-							+ listaFibonacci.get(listaFibonacci.size() - 2));
+				for (int i = 2; i < n; i++) {
+					fiblist.add(fiblist.get(fiblist.size() - 1) + fiblist.get(fiblist.size() - 2));
+				}
 		}
-
-		return listaFibonacci;
-
+		return fiblist;
 	}
 
 	/*
 	 * Escribir todos los números del number al 0 de step en step.
 	 */
 	public static int[] stepThisNumber(int number, int step) {
-		throw new NotImplementedException();
+		int numeros[];
+		List<Integer> listaNumeros = new ArrayList<Integer>();
+		if (step != 0) {
+			for (int i = 1; i <= number / step; i++) {
+				if (number - step * i > 0) {
+					listaNumeros.add(number - step * i);
+				}
+			}
+		}
+		numeros = new int[listaNumeros.size()];
+		for (int i = 0; i < listaNumeros.size(); i++) {
+			numeros[i] = listaNumeros.get(i);
+		}
+		return numeros;
 	}
 
 	/*
@@ -47,7 +58,23 @@ public class Calculator {
 	 * divisores que tiene.
 	 */
 	public static int[] divisors(int n) {
-		throw new NotImplementedException();
+		int resultado[] = null;
+		List<Integer> listaNumeros = new ArrayList<Integer>();
+		int almacenar = 0;
+		if (n > 0) {
+			for (int i = n; i > 0; i--) {
+				if (n % i == 0) {
+					almacenar++;
+					listaNumeros.add(i);
+				}
+			}
+
+			resultado = new int[almacenar];
+			for (int i = 0; i < almacenar; i++) {
+				resultado[i] = listaNumeros.get(i);
+			}
+		}
+		return resultado;
 	}
 
 	/*

@@ -2,6 +2,7 @@ package fp;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
@@ -10,14 +11,28 @@ public class Calculator {
 	 * este metodo devuelve el Class del object que le pasamos
 	 */
 	public static Class classTypeOf(Object x) {
-		throw new NotImplementedException();
+		System.out.println(x.getClass());
+		return x.getClass();
 	}
 
 	/*
 	 * devuelve una lista con los n números de la serie de fibonacci.
 	 */
 	public static List<Integer> fibonacci(int n) {
-		throw new NotImplementedException();
+		List<Integer> listaFibonacci = new ArrayList<Integer>();
+		if (n == 1)
+			listaFibonacci.add(1);
+		if (n > 1) {
+			listaFibonacci.add(1);
+			listaFibonacci.add(1);
+			if (n > 2)
+				for (int i = 2; i < n; i++)
+					listaFibonacci.add(listaFibonacci.get(listaFibonacci.size() - 1)
+							+ listaFibonacci.get(listaFibonacci.size() - 2));
+		}
+
+		return listaFibonacci;
+
 	}
 
 	/*
@@ -59,7 +74,7 @@ public class Calculator {
 		if (fecha != "" && fecha != null) {
 			String fechacorta = fecha.substring(6, 10);
 			int fechica = Integer.parseInt(fechacorta);
-			System.out.println(fecha);
+			System.out.println(fechica);
 			if (fechica % 4 == 0 && fechica % 100 != 0 || fechica % 400 == 0) {
 				return true;
 			}

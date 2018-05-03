@@ -82,7 +82,39 @@ public class Calculator {
 	 * resulta ser un palíndromo
 	 */
 	public static boolean checkIsPalindrome(String cadena) {
-		throw new NotImplementedException();
+		String cadenareves = "";
+		if (cadena != null) {
+			cadena = cadena.toUpperCase();
+			cadena = cadena.replace(" ", "");
+			cadena = cadena.replace(",", "");
+			cadena = cadena.replace(".", "");
+			cadena = cadena.replace("Á", "A");
+			cadena = cadena.replace("É", "E");
+			cadena = cadena.replace("Í", "I");
+			cadena = cadena.replace("Ó", "O");
+			cadena = cadena.replace("Ú", "U");
+			cadena = cadena.replace("À", "A");
+			cadena = cadena.replace("È", "E");
+			cadena = cadena.replace("Ì", "I");
+			cadena = cadena.replace("Ò", "O");
+			cadena = cadena.replace("Ù", "U");
+			cadena = cadena.replace(":", "");
+			cadena = cadena.replace("?", "");
+			cadena = cadena.replace("¿", "");
+			cadena = cadena.replace("·", "");
+
+			StringBuilder builder = new StringBuilder(cadena);
+			cadenareves = builder.reverse().toString();
+			// System.out.println("no reversa: " + cadena);
+			// System.out.println(" reversa: " + cadenareves);
+
+			if (cadena.equals(cadenareves)) {
+				System.out.println("no reversa: " + cadena);
+				System.out.println("   reversa: " + cadenareves);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/*

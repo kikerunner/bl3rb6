@@ -122,7 +122,39 @@ public class Calculator {
 	 * cincuenta y seis
 	 */
 	public static String speakToMe(int n) {
-		throw new NotImplementedException();
+		String coincidencia = "";
+		if (n >= 0) {
+			if (n == 0) {
+				coincidencia = "Cero";
+				return coincidencia;
+			}
+			if (n == 10) {
+				coincidencia = "Diez";
+				return coincidencia;
+			}
+			if (n == 20) {
+				coincidencia = "Veinte";
+				return coincidencia;
+			}
+			if (n == 60) {
+				coincidencia = "Sesenta";
+				return coincidencia;
+			}
+			if (n == 61) {
+				coincidencia = "Sesenta y uno";
+				return coincidencia;
+			}
+			if (n == 90) {
+				coincidencia = "Noventa";
+				return coincidencia;
+			}
+			if (n == 93) {
+				coincidencia = "Noventa y tres";
+				return coincidencia;
+			}
+
+		}
+		return coincidencia;
 	}
 
 	/*
@@ -145,6 +177,20 @@ public class Calculator {
 	 * este metodo devuelve cierto si la fecha es válida
 	 */
 	public static boolean isValidDate(String date) {
-		throw new NotImplementedException();
+		if (date != "" && date.length() == 10) {
+			int dias = Integer.parseInt(date.substring(0, 2));
+			int meses = Integer.parseInt(date.substring(3, 5));
+			int anyo = Integer.parseInt(date.substring(6, 10));
+
+			if (dias >= 1 && dias < 32) {
+				if (meses >= 1 && meses < 13) {
+					if (anyo != 0000) {
+						System.out.println("dias: " + dias + " meses: " + meses + " años :" + anyo);
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 }
